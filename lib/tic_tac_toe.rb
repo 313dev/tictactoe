@@ -1,13 +1,20 @@
 class TicTacToe
 
   def initialize
+    clear_board
+    start_as_player 'X'
+  end
+
+  def clear_board
     @board = [
       [ '-', '-', '-'],
       [ '-', '-', '-'],
       [ '-', '-', '-']
     ]
+  end
 
-    @next_player = 'X'
+  def start_as_player(player)
+    @next_player = player
   end
 
   def play(row, column)
