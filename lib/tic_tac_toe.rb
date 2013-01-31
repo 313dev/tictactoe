@@ -14,10 +14,14 @@ class TicTacToe
     display_board
   end
 
-  def placeX(row, column)
+  def play(row, column)
     puts ' -> Placing an X'
     @board[row][column] = 'X'
     display_board    
+  end
+
+  def player_at(row, column)
+    'X'
   end
 
   def display_board
@@ -31,12 +35,6 @@ class TicTacToe
     puts "~~~~~~~"
   end
 
-  def winner
-    if @board[0][0] == 'X' && @board[0][1] == 'X' && @board [0][2] == 'X'
-      'X'
-    else
-      'Draw!'
-    end
+  def winner?
   end
-
 end
