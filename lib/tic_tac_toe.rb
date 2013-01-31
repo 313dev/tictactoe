@@ -24,6 +24,10 @@ class TicTacToe
     end
   end
 
+  def winner?
+    "keep playing!"
+  end
+
   def board
     display = ''
     @board.each do |row|
@@ -36,6 +40,4 @@ class TicTacToe
     display
   end
 
-  def winner?
-  end
 end
