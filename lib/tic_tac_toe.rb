@@ -1,38 +1,35 @@
 class TicTacToe
 
   def initialize
-    puts
-    puts "Creating a new Board"
-    puts '~~~~~~~~~~~~~~~~~~~~'
-
     @board = [
       [ '-', '-', '-'],
       [ '-', '-', '-'],
       [ '-', '-', '-']
     ]
 
-    display_board
+    @next_player = 'X'
   end
 
   def play(row, column)
-    puts ' -> Placing an X'
-    @board[row][column] = 'X'
-    display_board    
+    @board[row][column] = @next_player
+
+    if @next_player == 'X'
+      @next_player = 'O'
+    else
+      @next_player = 'X'
+    end
   end
 
-  def player_at(row, column)
-    'X'
-  end
-
-  def display_board
+  def board
+    display = ''
     @board.each do |row|
       row.each do |square|
-        print " #{square}" 
+        display += " #{square}" 
       end
-      puts
+      display = display.rstrip + "\n"
     end
 
-    puts "~~~~~~~"
+    display
   end
 
   def winner?
