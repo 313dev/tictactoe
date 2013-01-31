@@ -48,7 +48,7 @@ describe "tic tac toe" do
 
   it "tells you to keep playing if there no winner" do
     ttt = TicTacToe.new
-    ttt.winner?.should == 'keep playing!'
+    ttt.play(0,0).should == 'keep playing!'
   end
 
 end

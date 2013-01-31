@@ -11,9 +11,13 @@ class TicTacToe
   end
 
   def play(row, column)
-    @board[row][column] = @next_player
-
+    put_piece_at(row, column)
     switch_players
+    check_for_winner
+  end
+
+  def put_piece_at(row, column)
+    @board[row][column] = @next_player
   end
 
   def switch_players
@@ -24,7 +28,7 @@ class TicTacToe
     end
   end
 
-  def winner?
+  def check_for_winner
     "keep playing!"
   end
 
