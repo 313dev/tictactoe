@@ -13,6 +13,10 @@ class TicTacToe
   def play(row, column)
     @board[row][column] = @next_player
 
+    switch_players
+  end
+
+  def switch_players
     if @next_player == 'X'
       @next_player = 'O'
     else
