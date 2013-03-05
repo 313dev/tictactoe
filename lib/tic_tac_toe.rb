@@ -69,9 +69,17 @@ class TicTacToe
   end
 
   def x_wins_diagonally
+    x_wins_diagonally_right || x_wins_diagonally_left
+  end
+
+  def x_wins_diagonally_right
     (0..2).inject(true) do |result, index|
       result &&= @board[index][index] == 'X'
     end
+  end
+
+  def x_wins_diagonally_left
+    @board[0][2] == 'X' && @board[1][1] == 'X' && @board[2][0] == 'X'
   end
 
   def board
