@@ -35,13 +35,14 @@ class TicTacToe
     end
   end
 
-  def check_for_winner
-
-    winner = @board[0].inject(true) do |result, space|
+  def x_wins_horizontally(row)
+    winner = @board[row].inject(true) do |result, space|
       result = result && (space == 'X')
     end
+  end
 
-    if winner
+  def check_for_winner
+    if x_wins_horizontally(0) || x_wins_horizontally(1)
       "x wins!"
     else
       "keep playing!"
