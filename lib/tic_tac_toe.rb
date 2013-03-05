@@ -51,8 +51,8 @@ class TicTacToe
   end
 
   def x_wins_on_row(row)
-    winner = @board[row].inject(true) do |result, space|
-      result = result && (space == 'X')
+    (0..2).inject(true) do |result, column|
+      result = result && @board[row][column] == 'X'
     end
   end
 
