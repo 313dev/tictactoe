@@ -9,8 +9,8 @@ describe "tic tac toe" do
       ttt = TicTacToe.new
       ttt.board.should == pretty(
         " - - -
-        - - -
-        - - -
+          - - -
+          - - -
         ")
     end
 
@@ -19,8 +19,8 @@ describe "tic tac toe" do
       ttt.play(0,0)
       ttt.board.should == pretty(
         " X - -
-        - - -
-        - - -
+          - - -
+          - - -
         ")
     end
 
@@ -30,8 +30,8 @@ describe "tic tac toe" do
       ttt.play(0,1)
       ttt.board.should == pretty(
         " X O -
-        - - -
-        - - -
+          - - -
+          - - -
         ")
     end
 
@@ -42,8 +42,8 @@ describe "tic tac toe" do
       ttt.play(0,2)
       ttt.board.should == pretty(
         " X O X
-        - - -
-        - - -
+          - - -
+          - - -
         ")
     end
 
