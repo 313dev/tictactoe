@@ -57,7 +57,9 @@ class TicTacToe
   end
 
   def x_wins_vertically
-    x_wins_on_column(0) || x_wins_on_column(1) || x_wins_on_column(2)
+    (0..2).inject(false) do |result, column|
+      result = result || x_wins_on_column(column)
+    end
   end
 
   def x_wins_on_column(column)
@@ -65,7 +67,6 @@ class TicTacToe
       result = result && @board[row][column] == 'X'
     end
   end
-
 
   def board
     display = ''
