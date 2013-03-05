@@ -60,7 +60,7 @@ describe "tic tac toe" do
       ttt.play(1,0)
       ttt.play(0,1)
       ttt.play(2,0)
-      ttt.play(0,2).should == "x wins!"
+      ttt.play(0,2).should == "X wins!"
     end
 
     it "across the middle" do
@@ -69,7 +69,7 @@ describe "tic tac toe" do
       ttt.play(0,0)
       ttt.play(1,1)
       ttt.play(0,1)
-      ttt.play(1,2).should == "x wins!"
+      ttt.play(1,2).should == "X wins!"
     end
 
     it "across the bottom" do
@@ -78,7 +78,7 @@ describe "tic tac toe" do
       ttt.play(0,0)
       ttt.play(2,1)
       ttt.play(0,1)
-      ttt.play(2,2).should == "x wins!"
+      ttt.play(2,2).should == "X wins!"
     end
 
     it "in the first column" do
@@ -87,7 +87,7 @@ describe "tic tac toe" do
       ttt.play(0,1)
       ttt.play(1,0)
       ttt.play(0,2)
-      ttt.play(2,0).should == "x wins!"
+      ttt.play(2,0).should == "X wins!"
     end
 
     it "in the second column" do
@@ -96,7 +96,7 @@ describe "tic tac toe" do
       ttt.play(0,0)
       ttt.play(1,1)
       ttt.play(0,2)
-      ttt.play(2,1).should == "x wins!"
+      ttt.play(2,1).should == "X wins!"
     end
 
     it "in the third column" do
@@ -105,7 +105,7 @@ describe "tic tac toe" do
       ttt.play(0,0)
       ttt.play(1,2)
       ttt.play(1,1)
-      ttt.play(2,2).should == "x wins!"
+      ttt.play(2,2).should == "X wins!"
     end
 
     it "diagonally top left to bottom right" do
@@ -114,7 +114,7 @@ describe "tic tac toe" do
       ttt.play(1,0)
       ttt.play(1,1)
       ttt.play(2,0)
-      ttt.play(2,2).should == "x wins!"
+      ttt.play(2,2).should == "X wins!"
     end
 
     it "diagonally top right to bottom left" do
@@ -123,8 +123,39 @@ describe "tic tac toe" do
       ttt.play(1,0)
       ttt.play(1,1)
       ttt.play(2,1)
-      ttt.play(2,0).should == "x wins!"
+      ttt.play(2,0).should == "X wins!"
     end
   end
 
+  describe "O winning" do
+    it "across the top" do
+      ttt = TicTacToe.new
+      ttt.play(2,0)
+      ttt.play(0,0)
+      ttt.play(2,1)
+      ttt.play(0,1)
+      ttt.play(1,1)
+      ttt.play(0,2).should == "O wins!"
+    end
+
+    it "in the first column" do
+      ttt = TicTacToe.new
+      ttt.play(2,2)
+      ttt.play(0,0)
+      ttt.play(2,1)
+      ttt.play(1,0)
+      ttt.play(1,1)
+      ttt.play(2,0).should == "O wins!"
+    end
+
+    it "diagonally top left to bottom right" do
+      ttt = TicTacToe.new
+      ttt.play(0,1)
+      ttt.play(0,0)
+      ttt.play(2,1)
+      ttt.play(1,1)
+      ttt.play(1,2)
+      ttt.play(2,2).should == "O wins!"
+    end
+  end
 end
