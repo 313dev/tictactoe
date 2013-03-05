@@ -53,6 +53,14 @@ describe "tic tac toe" do
     end
   end
 
+  describe "legal spaces" do
+    it "must not play somewhere that X has alread played" do
+      ttt = TicTacToe.new
+      ttt.play(0,0)
+      ttt.play(0,0).should == 'X has already played in that space!'
+    end
+  end
+
   describe "X winning" do
     it "across the top" do
       ttt = TicTacToe.new

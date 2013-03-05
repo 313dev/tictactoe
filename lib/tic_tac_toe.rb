@@ -1,5 +1,7 @@
 class TicTacToe
 
+  BLANK = '-'
+
   def initialize
     clear_board
     start_as_player 'X'
@@ -7,9 +9,9 @@ class TicTacToe
 
   def clear_board
     @board = [
-      ['-', '-', '-'],
-      ['-', '-', '-'],
-      ['-', '-', '-']
+      [BLANK, BLANK, BLANK],
+      [BLANK, BLANK, BLANK],
+      [BLANK, BLANK, BLANK]
     ]
   end
 
@@ -18,14 +20,23 @@ class TicTacToe
   end
 
   def play(row, column)
-    put_piece_at(row, column)
-    game_status = check_for_winner
-    switch_players
-    game_status
+    message = put_piece_at(row, column)
+    if message == "OK"
+      game_status = check_for_winner
+      switch_players
+      game_status
+    else
+      message
+    end
   end
 
   def put_piece_at(row, column)
-    @board[row][column] = @current_player
+    if @board[row][column] != BLANK
+      "X has already played in that space!"
+    else
+      @board[row][column] = @current_player
+      "OK"
+    end
   end
 
   def switch_players
