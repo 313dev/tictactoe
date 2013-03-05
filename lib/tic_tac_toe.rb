@@ -37,48 +37,48 @@ class TicTacToe
   end
 
   def check_for_winner
-    if x_wins_horizontally || x_wins_vertically || x_wins_diagonally
+    if horizontal_win || vertical_win || diagonal_win
       "#{@current_player} wins!"
     else
       "keep playing!"
     end
   end
 
-  def x_wins_horizontally
+  def horizontal_win
     (0..2).inject(false) do |result, row|
-      result ||= x_wins_on_row(row)
+      result ||= win_on_row(row)
     end
   end
 
-  def x_wins_on_row(row)
+  def win_on_row(row)
     (0..2).inject(true) do |result, column|
       result &&= @board[row][column] == @current_player
     end
   end
 
-  def x_wins_vertically
+  def vertical_win
     (0..2).inject(false) do |result, column|
-      result ||= x_wins_on_column(column)
+      result ||= win_on_column(column)
     end
   end
 
-  def x_wins_on_column(column)
+  def win_on_column(column)
     (0..2).inject(true) do |result, row|
       result &&= @board[row][column] == @current_player
     end
   end
 
-  def x_wins_diagonally
-    x_wins_diagonally_right || x_wins_diagonally_left
+  def diagonal_win
+    win_on_diagonal_right || win_on_diagonal_left
   end
 
-  def x_wins_diagonally_right
+  def win_on_diagonal_right
     (0..2).inject(true) do |result, index|
       result &&= @board[index][index] == @current_player
     end
   end
 
-  def x_wins_diagonally_left
+  def win_on_diagonal_left
     @board[0][2] == @current_player && 
       @board[1][1] == @current_player &&
       @board[2][0] == @current_player
