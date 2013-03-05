@@ -66,6 +66,12 @@ describe "tic tac toe" do
       ttt.play(0,1)
       ttt.play(0,1).should == 'O has already played in that space!'
     end
+
+    it "must not play out of bounds" do
+      ttt = TicTacToe.new
+      ttt.play(-1,-1).should == 'Not a valid location'
+      ttt.play(3,3).should == 'Not a valid location'
+    end
   end
 
   describe "X winning" do

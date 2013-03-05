@@ -30,7 +30,9 @@ class TicTacToe
   end
 
   def put_piece_at(row, column)
-    if @board[row][column] != BLANK
+    if row < 0 || row > 2 || column < 0 || column > 2
+      "Not a valid location"
+    elsif @board[row][column] != BLANK
       "#{@board[row][column]} has already played in that space!"
     else
       @board[row][column] = @current_player
