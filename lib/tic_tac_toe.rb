@@ -46,25 +46,25 @@ class TicTacToe
 
   def x_wins_horizontally
     (0..2).inject(false) do |result, row|
-      result = result || x_wins_on_row(row)
+      result ||= x_wins_on_row(row)
     end
   end
 
   def x_wins_on_row(row)
     (0..2).inject(true) do |result, column|
-      result = result && @board[row][column] == 'X'
+      result &&= @board[row][column] == 'X'
     end
   end
 
   def x_wins_vertically
     (0..2).inject(false) do |result, column|
-      result = result || x_wins_on_column(column)
+      result ||= x_wins_on_column(column)
     end
   end
 
   def x_wins_on_column(column)
     (0..2).inject(true) do |result, row|
-      result = result && @board[row][column] == 'X'
+      result &&= @board[row][column] == 'X'
     end
   end
 
