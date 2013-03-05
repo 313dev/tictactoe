@@ -35,7 +35,6 @@ class TicTacToe
     end
   end
 
-
   def check_for_winner
     if x_wins_horizontally || x_wins_vertically || x_wins_diagonally
       "x wins!"
