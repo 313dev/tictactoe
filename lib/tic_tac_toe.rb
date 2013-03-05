@@ -36,7 +36,16 @@ class TicTacToe
   end
 
   def check_for_winner
-    "keep playing!"
+
+    winner = @board[0].inject(true) do |result, space|
+      result = result && (space == 'X')
+    end
+
+    if winner
+      "x wins!"
+    else
+      "keep playing!"
+    end
   end
 
   def board
