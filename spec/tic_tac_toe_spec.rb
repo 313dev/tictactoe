@@ -59,6 +59,13 @@ describe "tic tac toe" do
       ttt.play(0,0)
       ttt.play(0,0).should == 'X has already played in that space!'
     end
+
+    it "must not play somewhere that O has alread played" do
+      ttt = TicTacToe.new
+      ttt.play(0,0)
+      ttt.play(0,1)
+      ttt.play(0,1).should == 'O has already played in that space!'
+    end
   end
 
   describe "X winning" do

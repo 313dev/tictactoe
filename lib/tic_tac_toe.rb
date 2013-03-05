@@ -32,7 +32,7 @@ class TicTacToe
 
   def put_piece_at(row, column)
     if @board[row][column] != BLANK
-      "X has already played in that space!"
+      "#{@board[row][column]} has already played in that space!"
     else
       @board[row][column] = @current_player
       "OK"
