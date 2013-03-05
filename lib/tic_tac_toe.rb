@@ -22,12 +22,11 @@ class TicTacToe
   def play(row, column)
     message = put_piece_at(row, column)
     if message == "OK"
-      game_status = check_for_winner
+      message = check_for_winner
       switch_players
-      game_status
-    else
-      message
     end
+
+    message
   end
 
   def put_piece_at(row, column)
