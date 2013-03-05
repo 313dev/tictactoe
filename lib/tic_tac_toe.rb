@@ -37,7 +37,7 @@ class TicTacToe
 
 
   def check_for_winner
-    if x_wins_horizontally || x_wins_vertically
+    if x_wins_horizontally || x_wins_vertically || x_wins_diagonally
       "x wins!"
     else
       "keep playing!"
@@ -65,6 +65,12 @@ class TicTacToe
   def x_wins_on_column(column)
     (0..2).inject(true) do |result, row|
       result &&= @board[row][column] == 'X'
+    end
+  end
+
+  def x_wins_diagonally
+    (0..2).inject(true) do |result, index|
+      result &&= @board[index][index] == 'X'
     end
   end
 
