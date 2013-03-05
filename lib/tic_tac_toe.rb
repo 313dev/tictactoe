@@ -14,24 +14,25 @@ class TicTacToe
   end
 
   def start_as_player(player)
-    @next_player = player
+    @current_player = player
   end
 
   def play(row, column)
     put_piece_at(row, column)
+    game_status = check_for_winner
     switch_players
-    check_for_winner
+    game_status
   end
 
   def put_piece_at(row, column)
-    @board[row][column] = @next_player
+    @board[row][column] = @current_player
   end
 
   def switch_players
-    if @next_player == 'X'
-      @next_player = 'O'
+    if @current_player == 'X'
+      @current_player = 'O'
     else
-      @next_player = 'X'
+      @current_player = 'X'
     end
   end
 
