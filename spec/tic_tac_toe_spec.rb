@@ -73,6 +73,15 @@ describe "tic tac toe" do
     ttt.play(2,2).should == "x wins!"
   end
 
+  it "wins in the first column" do
+    ttt = TicTacToe.new
+    ttt.play(0,0)
+    ttt.play(0,1)
+    ttt.play(1,0)
+    ttt.play(0,2)
+    ttt.play(2,0).should == "x wins!"
+  end
+
   it "tells you to keep playing if there no winner" do
     ttt = TicTacToe.new
     ttt.play(0,0).should == 'keep playing!'
